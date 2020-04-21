@@ -1,0 +1,191 @@
+------------------------------------------------------------------------------------------------------
+DDL
+------------------------------------------------------------------------------------------------------
+Creation of Database :
+ameyk=# CREATE DATABASE EFS_DB;
+
+
+
+Use Database :
+ameyk=# \c efs_db
+
+
+
+List all databases :
+ameyk=# \l
+                                          List of databases
+     Name     |  Owner   | Encoding |      Collate       |       Ctype        |   Access privileges
+--------------+----------+----------+--------------------+--------------------+-----------------------
+ ImdbDatabase | ameyk    | UTF8     | English_India.1252 | English_India.1252 |
+ ameyk        | ameyk    | UTF8     | English_India.1252 | English_India.1252 |
+ efs_db       | ameyk    | UTF8     | English_India.1252 | English_India.1252 |
+ postgres     | postgres | UTF8     | English_India.1252 | English_India.1252 |
+ template0    | postgres | UTF8     | English_India.1252 | English_India.1252 | =c/postgres          +
+              |          |          |                    |                    | postgres=CTc/postgres
+ template1    | postgres | UTF8     | English_India.1252 | English_India.1252 | =c/postgres          +
+              |          |          |                    |                    | postgres=CTc/postgres
+(6 rows)
+
+
+
+
+Create Tables :
+
+efs_db=# create table MODULES
+efs_db-# (
+efs_db(#   modulecode char(5) primary key,
+efs_db(#   modulename varchar(50),
+efs_db(#   duration int
+efs_db(#  );
+CREATE TABLE
+
+efs_db=# create table courses
+efs_db-# (
+efs_db(#  coursecode int primary key,
+efs_db(#  title varchar(50),
+efs_db(#  fees int);
+CREATE TABLE
+
+efs_db=# create table courseandmodules
+efs_db-# (
+efs_db(#   coursecode int ,
+efs_db(#   modulecode char(5) ,
+efs_db(#   primary key (coursecode, modulecode)
+efs_db(#  );
+CREATE TABLE
+
+efs_db=# create table trainers
+efs_db-# (
+efs_db(#   trainerid int primary key,
+efs_db(#   trainername varchar(50),
+efs_db(#   email varchar(32)
+efs_db(#  );
+CREATE TABLE
+
+efs_db=# create table batches
+efs_db-# (
+efs_db(#   batchcode int primary key,
+efs_db(#   trainerid int,
+efs_db(#   coursecode int,
+efs_db(#   startdate date,
+efs_db(#   capacity int,
+efs_db(#   batchstrength  int,
+efs_db(#   slotscode char(2) );
+CREATE TABLE
+
+efs_db=# create table students
+efs_db-# (
+efs_db(#   studentid int,
+efs_db(#   studentname varchar(50),
+efs_db(#   batchcode int references batches(batchcode),
+efs_db(#   place varchar(30),
+efs_db(#   phone varchar(10),
+efs_db(#   primary key ( studentid, batchcode)
+efs_db(#  );
+CREATE TABLE
+
+
+
+Show list of Tables :
+efs_db=# \d
+             List of relations
+ Schema |       Name       | Type  | Owner
+--------+------------------+-------+-------
+ public | batches          | table | ameyk
+ public | courseandmodules | table | ameyk
+ public | courses          | table | ameyk
+ public | modules          | table | ameyk
+ public | students         | table | ameyk
+ public | trainers         | table | ameyk
+(6 rows)
+
+------------------------------------------------------------------------------------------------------
+DML
+------------------------------------------------------------------------------------------------------
+
+D:\Sapient\prejoining-learning-program\Week2\SQL>psql efs_db < EFSDML.SQL
+Password for user ameyk:
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
