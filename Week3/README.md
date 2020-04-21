@@ -1,3 +1,3 @@
 #Week3
 
-1.) Java Programming Basics
+1.) Java Programming Basic
